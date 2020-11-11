@@ -1,18 +1,16 @@
-precision highp float;
+// attribute float size;
+// attribute vec3 color;
 
-attribute vec3 velocity;
-attribute float size;
-// varying vec2 vUv;
-
-// uniform mat4 modelViewMatrix;
-// uniform mat4 projectionMatrix;
+// varying vec3 vColor;
 
 void main() {
-  // vUv = uv;
-  vec3 newPos = position + velocity;
-  vec4 mvPosition = modelViewMatrix * vec4( newPos, 1. );
-  gl_PointSize = size * ( 100.0 / length( mvPosition.xyz ));;
 
-  gl_Position = projectionMatrix * mvPosition;
+	// vColor = color;
+
+	vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );
+
+	gl_PointSize = 20. * ( 300.0 / -mvPosition.xyz );
+
+	gl_Position = projectionMatrix * mvPosition;
 
 }
