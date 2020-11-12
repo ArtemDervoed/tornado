@@ -23,9 +23,9 @@ export default class Circle {
     }
     
     this.lineGeometry = new THREE.BufferGeometry().setFromPoints( points );
-    this.lineMaterial = new THREE.PointsMaterial( { size: 1 - this.friction, sizeAttenuation: true, map: sprite, alphaTest: this.friction, transparent: true } );
+    this.lineMaterial = new THREE.PointsMaterial( { size: 0.25, sizeAttenuation: true, map: sprite, alphaTest: 0.2, transparent: true } );
     this.line = new THREE.Points( this.lineGeometry, this.lineMaterial );
-    console.log(this.line);
+    // console.log(this.line);
   }
 
   render(time, pos) {
